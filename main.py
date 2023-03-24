@@ -3,29 +3,27 @@ from students import Student
 from courses import Course
 from enrollments import Enrollment
 
-# Load students from CSV file
+
 students = {}
 with open('students.csv', 'r') as f:
     reader = csv.reader(f)
-    next(reader)  # skip header row
+    next(reader) 
     for row in reader:
         id, name, email = row
         students[id] = Student(id, name, email)
 
-# Load courses from CSV file
 courses = {}
 with open('courses.csv', 'r') as f:
     reader = csv.reader(f)
-    next(reader)  # skip header row
+    next(reader)  
     for row in reader:
         id, name, credit = row
         courses[id] = Course(id, name, credit)
 
-# Load enrollments from CSV file
 enrollments = []
 with open('enrollments.csv', 'r') as f:
     reader = csv.reader(f)
-    next(reader)  # skip header row
+    next(reader)  
     for row in reader:
         student_id, course_id, semester, grade = row
         enrollment = Enrollment(student_id, course_id, semester, grade)
@@ -87,7 +85,6 @@ def display_course():
         return
     print("Error: course not found.")
 
-# Menu loop
 while True:
     print("MENU")
     print("1. Add Student")
